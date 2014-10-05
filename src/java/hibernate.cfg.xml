@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+      <property name="hibernate.current_session_context_class">thread</property>
+      <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+      <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+      <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/gudang</property>
+      <property name="hibernate.connection.username">postgres</property>
+      <property name="hibernate.connection.password">admin</property>
+      <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+      <property name="order_inserts">true</property>
+      
+      <mapping class="com.gudangsoal.model.HasilPertanyaan"/>
+      <mapping class="com.gudangsoal.model.Pertanyaan"/>
+      <mapping class="com.gudangsoal.model.Pilihan"/>
+      <mapping class="com.gudangsoal.model.RfKelas"/>
+      <mapping class="com.gudangsoal.model.RfNilai"/>
+      <mapping class="com.gudangsoal.model.RfPelajaran"/>
+      <mapping class="com.gudangsoal.model.RfTingkat"/>
+  </session-factory>
+</hibernate-configuration>

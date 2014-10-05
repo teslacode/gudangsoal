@@ -1,0 +1,28 @@
+body{
+    font-family:calibri,Helvetica,sans-serif;
+    background: ghostwhite; 
+}
+
+a:hover{
+    cursor:pointer;
+}
+
+.table-serial{
+    counter-reset: Serial;
+    border-collapse: separate;
+}
+
+.table-serial tbody tr td:first-child .seq:before{
+  counter-increment: Serial;
+  content: counter(Serial) ". ";
+}
+
+.pilihan-serial{
+    counter-reset: SerialPilihan;
+    border-collapse: separate;
+}
+
+.pilihan-serial .pilihan:before{
+  counter-increment: SerialPilihan;
+  content: counter(SerialPilihan,upper-alpha) ". ";
+}
