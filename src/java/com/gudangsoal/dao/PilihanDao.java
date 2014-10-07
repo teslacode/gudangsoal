@@ -10,62 +10,84 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public class PilihanDao extends Dao {
-    
+
     /**
      * Simpan Pilihan
-     * 
-     * @param Pilihan
-     * @return 
+     *
+     * @param object
+     * @return
+     * @throws java.lang.Exception
      */
     public Boolean save(Pilihan object) throws Exception {
         this.Open();
         this.session.beginTransaction();
-        
+
         Boolean result;
         session.merge(object);
         result = true;
-        
+
         this.session.getTransaction().commit();
         return result;
     }
-    
+
     /**
      * Get Pilihan
-     * 
+     *
      * @return
-     * @throws Exception 
+     * @throws Exception
      */
     public List<Pilihan> getAll() throws Exception {
         this.Open();
         this.session.beginTransaction();
-        
+
         List result;
         Criteria criteria = this.session.createCriteria(Pilihan.class);
         result = criteria.list();
-        
+
         this.session.getTransaction().commit();
         return result;
     }
-    
+
     /**
      * Get Pilihan
-     * 
+     *
+     * @param id
      * @return
-     * @throws Exception 
+     * @throws Exception
      */
     public Pilihan getById(Long id) throws Exception {
         this.Open();
         this.session.beginTransaction();
-        
+
         Pilihan result = null;
         Criteria criteria = this.session.createCriteria(Pilihan.class);
         criteria.add(Restrictions.eq("id", id));
-        if(!criteria.list().isEmpty()){
+        if (!criteria.list().isEmpty()) {
             result = (Pilihan) criteria.list().get(0);
         }
-        
+
         this.session.getTransaction().commit();
         return result;
     }
-    
+
+    /**
+     * Get Pilihan
+     *
+     * @param pertanyaanId
+     * @return
+     * @throws Exception
+     */
+    public List<Pilihan> getByPertanyaanId(Long pertanyaanId) throws Exception {
+        this.Open();
+        this.session.beginTransaction();
+
+        List<Pilihan> result;
+        Criteria criteria = this.session.createCriteria(Pilihan.class);
+        criteria.add(Restrictions.eq("pertanyaanId", pertanyaanId));
+        result = criteria.list();
+
+        this.session.getTransaction().commit();
+        return result;
+    }
+
 }

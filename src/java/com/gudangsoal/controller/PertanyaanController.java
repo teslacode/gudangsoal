@@ -1,10 +1,12 @@
 package com.gudangsoal.controller;
 
 import com.gudangsoal.dao.PertanyaanDao;
+import com.gudangsoal.dao.PilihanDao;
 import com.gudangsoal.dao.RfKelasDao;
 import com.gudangsoal.dao.RfPelajaranDao;
 import com.gudangsoal.dao.RfTingkatDao;
 import com.gudangsoal.model.Pertanyaan;
+import com.gudangsoal.model.Pilihan;
 import com.gudangsoal.model.RfKelas;
 import com.gudangsoal.model.RfPelajaran;
 import com.gudangsoal.model.RfTingkat;
@@ -25,12 +27,8 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/admin/soal")
 public class PertanyaanController extends DefaultController {
     
-    private String activePath = "soal";
-    private String title = "Pemeliharaan Soal";
-    
-//    private List<Pertanyaan> listPertanyaan;
-//    
-//    private Pertanyaan pertanyaan;
+    private final String activePath = "soal";
+    private final String title = "Pemeliharaan Soal";
     
     @Autowired
     private RfTingkatDao rfTingkatDao;
@@ -40,6 +38,8 @@ public class PertanyaanController extends DefaultController {
     private RfPelajaranDao rfPelajaranDao;
     @Autowired
     private PertanyaanDao pertanyaanDao;
+    @Autowired
+    private PilihanDao pilihanDao;
     
     public PertanyaanController(){
         super();
@@ -237,11 +237,14 @@ public class PertanyaanController extends DefaultController {
             HttpServletRequest request, 
             HttpServletResponse response)
     {
+        String result = "";
         try{
             if(this.check(model, request, response)){
                 Pertanyaan pertanyaanOld = this.pertanyaanDao.getById(pertanyaan.getId());
                 pertanyaan.setIsActive(!pertanyaanOld.getIsActive());
                 this.pertanyaanDao.save(pertanyaan);
+                result = pertanyaan.getStatus();
+                
                 List<Pertanyaan> listPertanyaan = pertanyaanDao.getAll(tingkatId, kelasId, pelajaranId);
                 pertanyaan = new Pertanyaan(new Date(), tingkatId, kelasId, pelajaranId);
                 
@@ -254,7 +257,47 @@ public class PertanyaanController extends DefaultController {
         }catch(Exception e){
             this.setError(model, e);
         }
-        return pertanyaan.getStatus();
+        return result;
+    }
+    
+    /**
+     * Controll Add Pilihan
+     * 
+     * @param model
+     * @param tingkatId
+     * @param kelasId
+     * @param pelajaranId
+     * @param pertanyaanId
+     * @param request
+     * @param response
+     * @return 
+     */
+    @RequestMapping(value="/{tingkatId}/{kelasId}/{pelajaranId}/{pertanyaanId}", method= RequestMethod.GET)
+    @ResponseBody
+    public ModelAndView pilihan(
+            ModelAndView model,
+            @PathVariable String tingkatId,
+            @PathVariable String kelasId,
+            @PathVariable String pelajaranId,
+            @PathVariable Long pertanyaanId,
+            HttpServletRequest request, 
+            HttpServletResponse response)
+    {
+        try{
+            if(this.check(model, request, response)){
+                Pertanyaan pertanyaan = this.pertanyaanDao.getById(pertanyaanId);
+                List<Pilihan> listPilihan = this.pilihanDao.getByPertanyaanId(pertanyaanId);
+                
+                model.setViewName("admin/pilihan");
+                model.addObject("title", this.title);
+                model.addObject("activePath", this.activePath);
+                model.addObject("pertanyaan", pertanyaan);
+                model.addObject("listPilihan", listPilihan);
+            }
+        }catch(Exception e){
+            this.setError(model, e);
+        }
+        return model;
     }
     
 }

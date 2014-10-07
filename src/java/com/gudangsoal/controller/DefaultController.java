@@ -42,12 +42,13 @@ public class DefaultController {
      * @param request
      * @param response
      * @return
+     * @throws java.lang.Exception
      */
     public Boolean check(
             ModelAndView model,
             HttpServletRequest request,
             HttpServletResponse response) throws Exception {
-        Boolean result = false;
+        Boolean result;
         result = true;
         this.setAll(model, request, response);
         return result;
@@ -59,7 +60,7 @@ public class DefaultController {
      * @param model
      * @param request
      * @param response
-     * @return
+     * @throws java.lang.Exception
      */
     public void setAll(
             ModelAndView model,
@@ -97,6 +98,7 @@ public class DefaultController {
      * @param model
      * @param request
      * @param response
+     * @throws java.lang.Exception
      */
     public void generateBreadcrumbs(
             ModelAndView model,
@@ -142,6 +144,7 @@ public class DefaultController {
      *
      * @param request
      * @param key
+     * @param value
      */
     public void setSession(HttpServletRequest request, String key, Object value) {
         HttpSession session = request.getSession();
@@ -153,6 +156,7 @@ public class DefaultController {
      *
      * @param request
      * @param key
+     * @return 
      */
     public Object getSession(HttpServletRequest request, String key) {
         HttpSession session = request.getSession();
