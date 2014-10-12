@@ -28,9 +28,6 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/index")
 public class IndexController extends DefaultController {
     
-//    private List<Pertanyaan> listPertanyaan;
-//    private List<RfNilai> listRfNilai;
-    
     @Autowired
     private RfTingkatDao rfTingkatDao;
     @Autowired
@@ -164,8 +161,8 @@ public class IndexController extends DefaultController {
             List<Pertanyaan> listPertanyaan = pertanyaanDao.generate(tingkatId, kelasId, pelajaranId);
             List<RfNilai> listRfNilai = rfNilaiDao.getAll();
             
-            setSession(request, "listPertanyaanTest", listPertanyaan);
-            setSession(request, "listRfNilaiTest", listRfNilai);
+            setSession(request, "listPertanyaanSession", listPertanyaan);
+            setSession(request, "listRfNilaiSession", listRfNilai);
 
             model.setViewName("index");
             model.addObject("title", "Gudang Soal");
@@ -203,8 +200,8 @@ public class IndexController extends DefaultController {
             Integer i = 0;
             Integer total = 0;
             
-            List<Pertanyaan> listPertanyaan = (List<Pertanyaan>) getSession(request, "listPertanyaanTest");
-            List<RfNilai> listRfNilai = (List<RfNilai>) getSession(request, "listRfNilaiTest");
+            List<Pertanyaan> listPertanyaan = (List<Pertanyaan>) getSession(request, "listPertanyaanSession");
+            List<RfNilai> listRfNilai = (List<RfNilai>) getSession(request, "listRfNilaiSession");
             
             for(Pertanyaan pertanyaan : listPertanyaan){
                 String pilihanId = request.getParameter("pertanyaan"+pertanyaan.getId().toString());
