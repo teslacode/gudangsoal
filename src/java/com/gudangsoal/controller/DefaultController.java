@@ -16,6 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Controller Default. Sebagai parent semua Controller
+ * 
+ * @author Ade Fruandta
+ */
 @Controller
 public class DefaultController {
 
@@ -31,6 +36,9 @@ public class DefaultController {
     @Autowired
     private RfPelajaranDao rfPelajaranDao;
 
+    /**
+     * Default Constructor
+     */
     public DefaultController() {
         this.listBreadCrumbs = new ArrayList<BreadCrumbs>();
     }
@@ -41,7 +49,7 @@ public class DefaultController {
      * @param model
      * @param request
      * @param response
-     * @return
+     * @return Boolean
      * @throws java.lang.Exception
      */
     public Boolean check(
@@ -156,7 +164,7 @@ public class DefaultController {
      *
      * @param request
      * @param key
-     * @return 
+     * @return Object
      */
     public Object getSession(HttpServletRequest request, String key) {
         HttpSession session = request.getSession();

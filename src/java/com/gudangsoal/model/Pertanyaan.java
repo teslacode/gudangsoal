@@ -1,7 +1,6 @@
 package com.gudangsoal.model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -18,6 +17,11 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import org.hibernate.annotations.GenericGenerator;
 
+/**
+ * Model Pertanyaan
+ * 
+ * @author Ade Fruandta
+ */
 @Entity
 @Table(name="pertanyaan")
 public class Pertanyaan implements Serializable {
@@ -42,10 +46,25 @@ public class Pertanyaan implements Serializable {
     @OneToMany(fetch = FetchType.EAGER, mappedBy="pertanyaan")
     private List<Pilihan> listPilihan;
     
+    /**
+     * Default Constructor
+     * date = current date
+     */
     public Pertanyaan(){
         this.date = new Date();
     }
     
+    /**
+     * Constructor
+     * id = null
+     * tingkatId = empty string
+     * kelasId = empty string
+     * pelajaranId = empty string
+     * description = empty string
+     * isActive = false
+     * 
+     * @param date 
+     */
     public Pertanyaan(Date date){
         this.date = date;
         this.id = null;
@@ -56,6 +75,16 @@ public class Pertanyaan implements Serializable {
         this.isActive = false;
     }
     
+    /**
+     * Constructor
+     * id = null
+     * isActive = false
+     * 
+     * @param date
+     * @param tingkatId
+     * @param kelasId
+     * @param pelajaranId 
+     */
     public Pertanyaan(Date date, String tingkatId, String kelasId, String pelajaranId){
         this.date = date;
         this.id = null;
@@ -128,7 +157,7 @@ public class Pertanyaan implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
-        this.isActive = (status.equals("Aktif")? true:false);
+        this.isActive = (status.equals("Aktif"));
     }
 
     public Boolean getHasil() {
@@ -164,6 +193,12 @@ public class Pertanyaan implements Serializable {
         Collections.shuffle(this.listPilihan);
     }
     
+    /**
+     * Menggabungkan HasilPertanyaan dari luar.
+     * Mereplace semua attribute yang null.
+     * 
+     * @param object 
+     */
     public void merge(Pertanyaan object){
         this.date = (object.getDate() == null) ? this.date : object.getDate();
         this.id = (object.getId() == null) ? this.id : object.getId();

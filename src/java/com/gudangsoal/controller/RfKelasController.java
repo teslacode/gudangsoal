@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.gudangsoal.controller;
 
 import com.gudangsoal.dao.RfKelasDao;
@@ -19,15 +15,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Controller page /admin/kelas
+ * 
+ * @author Ade Fruandta
+ */
 @Controller
 @RequestMapping("/admin/kelas")
 public class RfKelasController extends DefaultController {
  
-    private String activePath = "kelas";
-    private String title = "Pemeliharaan Kelas";
-    
-//    //Model
-//    private RfKelas rfKelas;
+    private final String activePath = "kelas";
+    private final String title = "Pemeliharaan Kelas";
     
     //Parameter
     private List<RfTingkat> listRfTingkat;
@@ -38,6 +36,9 @@ public class RfKelasController extends DefaultController {
     @Autowired
     private RfTingkatDao rfTingkatDao;
     
+    /**
+     * Default Constructor
+     */
     public RfKelasController(){
         super();
     }
@@ -48,7 +49,7 @@ public class RfKelasController extends DefaultController {
      * @param model
      * @param request
      * @param response
-     * @return
+     * @return ModelAndView
      */
     @RequestMapping(method= RequestMethod.GET)
     public ModelAndView kelas(
@@ -78,9 +79,10 @@ public class RfKelasController extends DefaultController {
      * Controll simpan Paramter Kelas
      * 
      * @param model
+     * @param rfKelas
      * @param request
      * @param response
-     * @return
+     * @return ModelAndView
      */
     @RequestMapping(method= RequestMethod.POST, params={"save"})
     public ModelAndView kelas(
@@ -113,9 +115,10 @@ public class RfKelasController extends DefaultController {
      * Controll hapus Paramter Kelas
      * 
      * @param model
+     * @param id
      * @param request
      * @param response
-     * @return
+     * @return ModelAndView
      */
     @RequestMapping(method= RequestMethod.POST, params={"hapus"})
     public ModelAndView kelas(

@@ -13,18 +13,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Controller Page /admin/tingkat
+ * 
+ * @author Ade Fruandta
+ */
 @Controller
 @RequestMapping("/admin/tingkat")
 public class RfTingkatController extends DefaultController {
     
-    private String activePath = "tingkat";
-    private String title = "Pemeliharaan Tingkat";
-    
-    //private RfTingkat rfTingkat;
+    private final String activePath = "tingkat";
+    private final String title = "Pemeliharaan Tingkat";
     
     @Autowired
     private RfTingkatDao rfTingkatDao;
     
+    /**
+     * Default Controller
+     */
     public RfTingkatController(){
         super();
     }
@@ -35,7 +41,7 @@ public class RfTingkatController extends DefaultController {
      * @param model
      * @param request
      * @param response
-     * @return
+     * @return ModelAndView
      */
     @RequestMapping(method= RequestMethod.GET)
     public ModelAndView tingkat(
@@ -63,9 +69,10 @@ public class RfTingkatController extends DefaultController {
      * Controll simpan Paramter Tingkat
      * 
      * @param model
+     * @param rfTingkat
      * @param request
      * @param response
-     * @return
+     * @return ModelAndView
      */
     @RequestMapping(method= RequestMethod.POST, params={"save"})
     public ModelAndView tingkat(
@@ -97,9 +104,10 @@ public class RfTingkatController extends DefaultController {
      * Controll hapus Paramter Tingkat
      * 
      * @param model
+     * @param id
      * @param request
      * @param response
-     * @return
+     * @return ModelAndView
      */
     @RequestMapping(method= RequestMethod.POST, params={"hapus"})
     public ModelAndView tingkat(

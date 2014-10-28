@@ -1,5 +1,10 @@
 package com.gudangsoal.model;
 
+/**
+ * Model untuk Bread Crumbs
+ * 
+ * @author Ade Fruandta
+ */
 public class BreadCrumbs {
     
     private String link;

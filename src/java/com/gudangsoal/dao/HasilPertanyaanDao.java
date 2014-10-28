@@ -4,6 +4,11 @@ import com.gudangsoal.model.HasilPertanyaan;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * DAO HasilPertanyaan
+ * 
+ * @author Ade Fruandta
+ */
 @Repository
 @Transactional
 public class HasilPertanyaanDao extends Dao {
@@ -11,8 +16,9 @@ public class HasilPertanyaanDao extends Dao {
     /**
      * Simpan HasilPertanyaan
      * 
-     * @param HasilPertanyaan
-     * @return 
+     * @param object
+     * @return Boolean
+     * @throws java.lang.Exception 
      */
     public Boolean save(HasilPertanyaan object) throws Exception {
         this.Open();

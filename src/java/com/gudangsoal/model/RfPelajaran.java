@@ -11,6 +11,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ * Model RF Pelajaran
+ * 
+ * @author Ade Fruandta
+ */
 @Entity
 @Table(name="rf_pelajaran")
 public class RfPelajaran implements Serializable {
@@ -32,10 +37,24 @@ public class RfPelajaran implements Serializable {
     @JoinColumn(name="kelas_id", insertable=false, updatable=false)
     private RfKelas rfKelas;
     
+    /**
+     * Default Constructor
+     * date = current date
+     */
     public RfPelajaran(){
         this.date = new Date();
     }
     
+    /**
+     * Constructor
+     * id = empty string
+     * tingkatId = empty string
+     * kelasId = empty string
+     * description = empty string
+     * urutan = 0
+     * 
+     * @param date 
+     */
     public RfPelajaran(Date date){
         this.date = date;
         this.id = "";
@@ -109,6 +128,12 @@ public class RfPelajaran implements Serializable {
         this.rfKelas = rfKelas;
     }
     
+    /**
+     * Menggabungkan HasilPertanyaan dari luar.
+     * Mereplace semua attribute yang null.
+     * 
+     * @param object 
+     */
     public void merge(RfPelajaran object){
         this.date = (object.getDate() == null) ? this.date : object.getDate();
         this.id = (object.getId() == null) ? this.id : object.getId();

@@ -7,12 +7,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Controller untuk Page /admin
+ * 
+ * @author Ade Fruandta
+ */
 @Controller
 @RequestMapping("/admin")
 public class AdminController extends DefaultController {
     
-    private String activePath = "admin";
+    private final String activePath = "admin";
     
+    /**
+     * Default Constructor
+     */
     public AdminController(){
         super();
     }
@@ -23,7 +31,7 @@ public class AdminController extends DefaultController {
      * @param model
      * @param request
      * @param response
-     * @return
+     * @return ModelAndView
      */
     @RequestMapping(method= RequestMethod.GET)
     public ModelAndView index(

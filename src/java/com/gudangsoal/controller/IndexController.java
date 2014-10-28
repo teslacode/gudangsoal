@@ -24,6 +24,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Controller Page /index
+ * 
+ * @author Ade Fruandta
+ */
 @Controller
 @RequestMapping("/index")
 public class IndexController extends DefaultController {
@@ -44,7 +49,7 @@ public class IndexController extends DefaultController {
     private PilihanDao pilihanDao;
     
     /**
-     * Constructor
+     * Default Constructor
      */
     public IndexController(){
         super();
@@ -56,7 +61,7 @@ public class IndexController extends DefaultController {
      * @param model
      * @param request
      * @param response
-     * @return 
+     * @return ModelAndView
      */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView index(
@@ -83,7 +88,7 @@ public class IndexController extends DefaultController {
      * @param tingkatId
      * @param request
      * @param response
-     * @return 
+     * @return ModelAndView
      */
     @RequestMapping(value="/{tingkatId}", method = RequestMethod.GET)
     public ModelAndView index(
@@ -113,7 +118,7 @@ public class IndexController extends DefaultController {
      * @param kelasId
      * @param request
      * @param response
-     * @return 
+     * @return ModelAndView
      */
     @RequestMapping(value="/{tingkatId}/{kelasId}", method = RequestMethod.GET)
     public ModelAndView index(
@@ -145,7 +150,7 @@ public class IndexController extends DefaultController {
      * @param pelajaranId
      * @param request
      * @param response
-     * @return 
+     * @return ModelAndView
      */
     @RequestMapping(value="/{tingkatId}/{kelasId}/{pelajaranId}", method = RequestMethod.GET)
     public ModelAndView index(
@@ -183,7 +188,7 @@ public class IndexController extends DefaultController {
      * @param pelajaranId
      * @param request
      * @param response
-     * @return 
+     * @return ModelAndView
      */
     @RequestMapping(value="/{tingkatId}/{kelasId}/{pelajaranId}", method = RequestMethod.POST)
     public ModelAndView indexPost(

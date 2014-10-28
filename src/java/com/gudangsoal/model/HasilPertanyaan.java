@@ -12,6 +12,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 
+/**
+ * Model Hasil Pertanyaan
+ * 
+ * @author Ade Fruandta
+ */
 @Entity
 @Table(name="hasil_pertanyaan")
 public class HasilPertanyaan implements Serializable {
@@ -25,10 +30,22 @@ public class HasilPertanyaan implements Serializable {
     @Column(name="pertanyaan_id") private Long pertanyaanId;
     @Column(name="hasil") private Boolean hasil;
 
+    /**
+     * Default Constructor
+     * date = current date
+     */
     public HasilPertanyaan(){
         this.date = new Date();
     }
     
+    /**
+     * Constructor
+     * id = null
+     * pertanyaanId = 0
+     * hasil = null
+     * 
+     * @param date 
+     */
     public HasilPertanyaan(Date date){
         this.date = date;
         this.id = null;
@@ -68,6 +85,12 @@ public class HasilPertanyaan implements Serializable {
         this.hasil = hasil;
     }
     
+    /**
+     * Menggabungkan HasilPertanyaan dari luar.
+     * Mereplace semua attribute yang null.
+     * 
+     * @param object 
+     */
     public void merge(HasilPertanyaan object){
         this.date = (object.getDate() == null) ? this.date : object.getDate();
         this.id = (object.getId() == null) ? this.id : object.getId();

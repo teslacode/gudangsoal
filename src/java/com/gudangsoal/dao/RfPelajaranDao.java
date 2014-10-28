@@ -8,6 +8,11 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * DAO RF Pelajaran
+ * 
+ * @author Ade Fruandta
+ */
 @Repository
 @Transactional
 public class RfPelajaranDao extends Dao {
@@ -15,8 +20,9 @@ public class RfPelajaranDao extends Dao {
     /**
      * Simpan RfPelajaran
      * 
-     * @param RfPelajaran
-     * @return 
+     * @param object
+     * @return Boolean
+     * @throws java.lang.Exception 
      */
     public Boolean save(RfPelajaran object) throws Exception {
         this.Open();
@@ -33,8 +39,9 @@ public class RfPelajaranDao extends Dao {
     /**
      * Delete RfPelajaran
      * 
-     * @param RfPelajaran
-     * @return 
+     * @param object
+     * @return Boolean
+     * @throws java.lang.Exception 
      */
     public Boolean delete(RfPelajaran object) throws Exception {
         this.Open();
@@ -51,7 +58,8 @@ public class RfPelajaranDao extends Dao {
     /**
      * Get RfPelajaran
      * 
-     * @return 
+     * @return List RfPelajaran
+     * @throws java.lang.Exception 
      */
     public List<RfPelajaran> getAll() throws Exception {
         this.Open();
@@ -71,7 +79,7 @@ public class RfPelajaranDao extends Dao {
      * 
      * @param tingkatId
      * @param kelasId
-     * @return
+     * @return List RfPelajaran
      * @throws Exception 
      */
     public List<RfPelajaran> getAll(String tingkatId, String kelasId) throws Exception {
@@ -92,7 +100,8 @@ public class RfPelajaranDao extends Dao {
     /**
      * Get RfPelajaran
      * 
-     * @return
+     * @param id
+     * @return RfPelajaran
      * @throws Exception 
      */
     public RfPelajaran getById(String id) throws Exception {

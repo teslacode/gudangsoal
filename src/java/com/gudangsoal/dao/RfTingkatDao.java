@@ -8,6 +8,11 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * DAO RF Tingkat
+ * 
+ * @author Ade Fruandta
+ */
 @Repository
 @Transactional
 public class RfTingkatDao extends Dao {
@@ -15,8 +20,9 @@ public class RfTingkatDao extends Dao {
     /**
      * Simpan RfTingkat
      * 
-     * @param RfTingkat
-     * @return 
+     * @param object
+     * @return Boolean
+     * @throws java.lang.Exception 
      */
     public Boolean save(RfTingkat object) throws Exception {
         this.Open();
@@ -33,8 +39,9 @@ public class RfTingkatDao extends Dao {
     /**
      * Delete RfTingkat
      * 
-     * @param RfTingkat
-     * @return 
+     * @param object
+     * @return Boolean
+     * @throws java.lang.Exception 
      */
     public Boolean delete(RfTingkat object) throws Exception {
         this.Open();
@@ -51,7 +58,8 @@ public class RfTingkatDao extends Dao {
     /**
      * Get RfTingkat
      * 
-     * @return 
+     * @return List RfTingkat
+     * @throws java.lang.Exception 
      */
     public List<RfTingkat> getAll() throws Exception {
         this.Open();
@@ -69,7 +77,8 @@ public class RfTingkatDao extends Dao {
     /**
      * Get RfTingkat
      * 
-     * @return
+     * @param id
+     * @return RfTingkat
      * @throws Exception 
      */
     public RfTingkat getById(String id) throws Exception {

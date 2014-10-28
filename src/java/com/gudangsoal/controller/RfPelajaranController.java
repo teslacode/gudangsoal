@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.gudangsoal.controller;
 
 import com.gudangsoal.dao.RfKelasDao;
@@ -21,15 +17,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Controller page /admin/pelajaran
+ * 
+ * @author Ade Fruandta
+ */
 @Controller
 @RequestMapping("/admin/pelajaran")
 public class RfPelajaranController extends DefaultController {
  
-    private String activePath = "pelajaran";
-    private String title = "Pemeliharaan Pelajaran";
-    
-//    //Model
-//    private RfPelajaran rfPelajaran;
+    private final String activePath = "pelajaran";
+    private final String title = "Pemeliharaan Pelajaran";
     
     //Parameter
     private List<RfTingkat> listRfTingkat;
@@ -43,6 +41,9 @@ public class RfPelajaranController extends DefaultController {
     @Autowired
     private RfKelasDao rfKelasDao;
     
+    /**
+     * Default Controller
+     */
     public RfPelajaranController(){
         super();
     }
@@ -53,7 +54,7 @@ public class RfPelajaranController extends DefaultController {
      * @param model
      * @param request
      * @param response
-     * @return
+     * @return ModelAndView
      */
     @RequestMapping(method= RequestMethod.GET)
     public ModelAndView pelajaran(
@@ -85,9 +86,10 @@ public class RfPelajaranController extends DefaultController {
      * Controll simpan Paramter Pelajaran
      * 
      * @param model
+     * @param rfPelajaran
      * @param request
      * @param response
-     * @return
+     * @return ModelAndView
      */
     @RequestMapping(method= RequestMethod.POST, params={"save"})
     public ModelAndView pelajaran(
@@ -121,9 +123,10 @@ public class RfPelajaranController extends DefaultController {
      * Controll hapus Paramter Pelajaran
      * 
      * @param model
+     * @param id
      * @param request
      * @param response
-     * @return
+     * @return ModelAndView
      */
     @RequestMapping(method= RequestMethod.POST, params={"hapus"})
     public ModelAndView pelajaran(

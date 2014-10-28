@@ -4,11 +4,15 @@ import com.gudangsoal.model.Pertanyaan;
 import java.util.Collections;
 import java.util.List;
 import org.hibernate.Criteria;
-import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * DAO Pertanyaan
+ * 
+ * @author Ade Fruandta
+ */
 @Repository
 @Transactional
 public class PertanyaanDao extends Dao {
@@ -16,8 +20,9 @@ public class PertanyaanDao extends Dao {
     /**
      * Simpan Pertanyaan
      * 
-     * @param Pertanyaan
-     * @return 
+     * @param object
+     * @return Boolean
+     * @throws java.lang.Exception 
      */
     public Boolean save(Pertanyaan object) throws Exception {
         this.Open();
@@ -34,7 +39,7 @@ public class PertanyaanDao extends Dao {
     /**
      * Get Pertanyaan
      * 
-     * @return
+     * @return List Pertanyaan
      * @throws Exception 
      */
     public List<Pertanyaan> getAll() throws Exception {
@@ -56,7 +61,7 @@ public class PertanyaanDao extends Dao {
      * @param tingkatId
      * @param kelasId
      * @param pelajaranId
-     * @return
+     * @return List Pertanyaan
      * @throws Exception 
      */
     public List<Pertanyaan> getAll(String tingkatId, String kelasId, String pelajaranId) throws Exception {
@@ -81,7 +86,8 @@ public class PertanyaanDao extends Dao {
      * @param tingkatId
      * @param kelasId
      * @param pelajaranId
-     * @return
+     * @param isActive
+     * @return List Pertanyaan
      * @throws Exception 
      */
     public List<Pertanyaan> getAll(String tingkatId, String kelasId, String pelajaranId, Boolean isActive) throws Exception {
@@ -107,7 +113,8 @@ public class PertanyaanDao extends Dao {
      * @param tingkatId
      * @param kelasId
      * @param pelajaranId
-     * @return 
+     * @return List Pertanyaan
+     * @throws java.lang.Exception 
      */
     public List<Pertanyaan> generate(String tingkatId, String kelasId, String pelajaranId) throws Exception{
         this.Open();
@@ -132,7 +139,8 @@ public class PertanyaanDao extends Dao {
     /**
      * Get Pertanyaan
      * 
-     * @return
+     * @param id
+     * @return Pertanyaan
      * @throws Exception 
      */
     public Pertanyaan getById(Long id) throws Exception {

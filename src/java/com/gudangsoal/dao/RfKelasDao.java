@@ -8,6 +8,11 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * DAO RF Kelas
+ * 
+ * @author Ade Fruandta
+ */
 @Repository
 @Transactional
 public class RfKelasDao extends Dao {
@@ -15,8 +20,9 @@ public class RfKelasDao extends Dao {
     /**
      * Simpan RfKelas
      * 
-     * @param RfKelas
-     * @return 
+     * @param object
+     * @return Boolean
+     * @throws java.lang.Exception 
      */
     public Boolean save(RfKelas object) throws Exception {
         this.Open();
@@ -33,8 +39,9 @@ public class RfKelasDao extends Dao {
     /**
      * Delete RfKelas
      * 
-     * @param RfKelas
-     * @return 
+     * @param object
+     * @return Boolean
+     * @throws java.lang.Exception 
      */
     public Boolean delete(RfKelas object) throws Exception {
         this.Open();
@@ -51,7 +58,8 @@ public class RfKelasDao extends Dao {
     /**
      * Get RfKelas
      * 
-     * @return 
+     * @return List RfKelas
+     * @throws java.lang.Exception 
      */
     public List<RfKelas> getAll() throws Exception {
         this.Open();
@@ -70,7 +78,8 @@ public class RfKelasDao extends Dao {
      * Get RfKelas
      * 
      * @param tingkatId
-     * @return 
+     * @return List RfKelas
+     * @throws java.lang.Exception 
      */
     public List<RfKelas> getAll(String tingkatId) throws Exception {
         this.Open();
@@ -89,7 +98,8 @@ public class RfKelasDao extends Dao {
     /**
      * Get RfKelas
      * 
-     * @return
+     * @param id
+     * @return RfKelas
      * @throws Exception 
      */
     public RfKelas getById(String id) throws Exception {

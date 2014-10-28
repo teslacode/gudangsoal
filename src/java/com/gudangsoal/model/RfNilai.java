@@ -9,6 +9,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ * Model RF Nilai
+ * 
+ * @author Ade Fruandta
+ */
 @Entity
 @Table(name="rf_nilai")
 public class RfNilai implements Serializable {
@@ -22,6 +27,10 @@ public class RfNilai implements Serializable {
     @Column(name="nilai") private Integer nilai;
     @Column(name="urutan") private Integer urutan;
 
+    /**
+     * Default Constructor
+     * date = current date
+     */
     public Date getDate() {
         return date;
     }
@@ -70,6 +79,12 @@ public class RfNilai implements Serializable {
         this.urutan = urutan;
     }
     
+    /**
+     * Menggabungkan HasilPertanyaan dari luar.
+     * Mereplace semua attribute yang null.
+     * 
+     * @param object 
+     */
     public void merge(RfNilai object){
         this.date = (object.getDate() == null) ? this.date : object.getDate();
         this.id = (object.getId() == null) ? this.id : object.getId();

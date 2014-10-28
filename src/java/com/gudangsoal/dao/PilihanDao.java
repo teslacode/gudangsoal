@@ -7,6 +7,11 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * DAO Pilihan
+ * 
+ * @author Ade Fruandta
+ */
 @Repository
 @Transactional
 public class PilihanDao extends Dao {
@@ -15,7 +20,7 @@ public class PilihanDao extends Dao {
      * Simpan Pilihan
      *
      * @param object
-     * @return
+     * @return Boolean
      * @throws java.lang.Exception
      */
     public Boolean save(Pilihan object) throws Exception {
@@ -33,7 +38,7 @@ public class PilihanDao extends Dao {
     /**
      * Get Pilihan
      *
-     * @return
+     * @return List Pilihan
      * @throws Exception
      */
     public List<Pilihan> getAll() throws Exception {
@@ -52,7 +57,7 @@ public class PilihanDao extends Dao {
      * Get Pilihan
      *
      * @param id
-     * @return
+     * @return Pilihan
      * @throws Exception
      */
     public Pilihan getById(Long id) throws Exception {
@@ -74,7 +79,7 @@ public class PilihanDao extends Dao {
      * Get Pilihan
      *
      * @param pertanyaanId
-     * @return
+     * @return List Pilihan
      * @throws Exception
      */
     public List<Pilihan> getByPertanyaanId(Long pertanyaanId) throws Exception {

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.gudangsoal.controller;
 
 import com.gudangsoal.dao.RfNilaiDao;
@@ -16,17 +12,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Controller Page /admin/nilai
+ * @author Ade Fruandta
+ */
 @Controller
 @RequestMapping("/admin/nilai")
 public class RfNilaiController extends DefaultController {
     
-    private String activePath = "nilai";
-    private String title = "Pemeliharaan Nilai";
-    
-//    private RfNilai rfNilai;
+    private final String activePath = "nilai";
+    private final String title = "Pemeliharaan Nilai";
     
     @Autowired
     private RfNilaiDao rfNilaiDao;
+
+    /**
+     * Default Controller
+     */
+    public RfNilaiController() {
+        super();
+    }
     
     /**
      * Controll form Paramter Nilai
@@ -34,7 +39,7 @@ public class RfNilaiController extends DefaultController {
      * @param model
      * @param request
      * @param response
-     * @return
+     * @return ModelAndView
      */
     @RequestMapping(method= RequestMethod.GET)
     public ModelAndView nilai(
@@ -60,9 +65,10 @@ public class RfNilaiController extends DefaultController {
      * Controll simpan Paramter Nilai
      * 
      * @param model
+     * @param rfNilai
      * @param request
      * @param response
-     * @return
+     * @return ModelAndView
      */
     @RequestMapping(method= RequestMethod.POST)
     public ModelAndView nilai(

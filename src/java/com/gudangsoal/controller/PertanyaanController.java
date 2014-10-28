@@ -23,6 +23,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Controller Page /admin/soal
+ * 
+ * @author Ade Fruandta
+ */
 @Controller
 @RequestMapping("/admin/soal")
 public class PertanyaanController extends DefaultController {
@@ -41,6 +46,9 @@ public class PertanyaanController extends DefaultController {
     @Autowired
     private PilihanDao pilihanDao;
     
+    /**
+     * Default Constructor
+     */
     public PertanyaanController(){
         super();
     }
@@ -51,7 +59,7 @@ public class PertanyaanController extends DefaultController {
      * @param model
      * @param request
      * @param response
-     * @return 
+     * @return ModelAndView
      */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView soal(
@@ -80,7 +88,7 @@ public class PertanyaanController extends DefaultController {
      * @param tingkatId
      * @param request
      * @param response
-     * @return 
+     * @return ModelAndView
      */
     @RequestMapping(value="/{tingkatId}", method = RequestMethod.GET)
     public ModelAndView soal(
@@ -112,7 +120,7 @@ public class PertanyaanController extends DefaultController {
      * @param kelasId
      * @param request
      * @param response
-     * @return 
+     * @return ModelAndView
      */
     @RequestMapping(value="/{tingkatId}/{kelasId}", method = RequestMethod.GET)
     public ModelAndView soal(
@@ -146,7 +154,7 @@ public class PertanyaanController extends DefaultController {
      * @param pelajaranId
      * @param request
      * @param response
-     * @return 
+     * @return ModelAndView
      */
     @RequestMapping(value="/{tingkatId}/{kelasId}/{pelajaranId}", method = RequestMethod.GET)
     public ModelAndView soal(
@@ -184,7 +192,7 @@ public class PertanyaanController extends DefaultController {
      * @param pelajaranId
      * @param request
      * @param response
-     * @return 
+     * @return ModelAndView
      */
     @RequestMapping(value="/{tingkatId}/{kelasId}/{pelajaranId}", method= RequestMethod.POST, params={"save"})
     public ModelAndView soal(
@@ -224,7 +232,7 @@ public class PertanyaanController extends DefaultController {
      * @param pelajaranId
      * @param request
      * @param response
-     * @return 
+     * @return ModelAndView
      */
     @RequestMapping(value="/{tingkatId}/{kelasId}/{pelajaranId}", method= RequestMethod.POST, params={"status"})
     @ResponseBody
@@ -270,7 +278,7 @@ public class PertanyaanController extends DefaultController {
      * @param pertanyaanId
      * @param request
      * @param response
-     * @return 
+     * @return ModelAndView
      */
     @RequestMapping(value="/{tingkatId}/{kelasId}/{pelajaranId}/{pertanyaanId}", method= RequestMethod.GET)
     @ResponseBody

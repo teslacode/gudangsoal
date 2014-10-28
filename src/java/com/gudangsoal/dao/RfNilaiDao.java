@@ -8,6 +8,10 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * DAO RF Nilai
+ * @author Ade Fruandta
+ */
 @Repository
 @Transactional
 public class RfNilaiDao extends Dao {
@@ -15,8 +19,9 @@ public class RfNilaiDao extends Dao {
     /**
      * Simpan RfNilai
      * 
-     * @param RfNilai
-     * @return 
+     * @param object
+     * @return Boolean
+     * @throws java.lang.Exception 
      */
     public Boolean save(RfNilai object) throws Exception {
         this.Open();
@@ -33,7 +38,8 @@ public class RfNilaiDao extends Dao {
     /**
      * Get RfNilai
      * 
-     * @return 
+     * @return List RfNilai
+     * @throws java.lang.Exception
      */
     public List<RfNilai> getAll() throws Exception {
         this.Open();
@@ -51,7 +57,8 @@ public class RfNilaiDao extends Dao {
     /**
      * Get RfNilai
      * 
-     * @return
+     * @param id
+     * @return RfNilai
      * @throws Exception 
      */
     public RfNilai getById(String id) throws Exception {
@@ -72,7 +79,8 @@ public class RfNilaiDao extends Dao {
     /**
      * Get RfNilai
      * 
-     * @return
+     * @param hasil
+     * @return RfNilai
      * @throws Exception 
      */
     public RfNilai getByHasil(Boolean hasil) throws Exception {
