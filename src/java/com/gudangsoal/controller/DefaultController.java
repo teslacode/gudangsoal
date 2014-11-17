@@ -168,7 +168,7 @@ public class DefaultController {
      */
     public Object getSession(HttpServletRequest request, String key) {
         HttpSession session = request.getSession();
-        return session.getAttribute("key");
+        return session.getAttribute(key);
     }
 
     /**

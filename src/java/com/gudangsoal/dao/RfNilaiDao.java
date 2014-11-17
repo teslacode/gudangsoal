@@ -3,6 +3,7 @@ package com.gudangsoal.dao;
 import com.gudangsoal.model.RfNilai;
 import java.util.List;
 import org.hibernate.Criteria;
+import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -24,14 +25,14 @@ public class RfNilaiDao extends Dao {
      * @throws java.lang.Exception 
      */
     public Boolean save(RfNilai object) throws Exception {
-        this.Open();
-        this.session.beginTransaction();
+        Session session = this.Open();
+        session.beginTransaction();
         
         Boolean result;
         session.merge(object);
         result = true;
         
-        this.session.getTransaction().commit();
+        session.getTransaction().commit();
         return result;
     }
     
@@ -42,15 +43,15 @@ public class RfNilaiDao extends Dao {
      * @throws java.lang.Exception
      */
     public List<RfNilai> getAll() throws Exception {
-        this.Open();
-        this.session.beginTransaction();
+        Session session = this.Open();
+        session.beginTransaction();
         
         List result;
-        Criteria criteria = this.session.createCriteria(RfNilai.class);
+        Criteria criteria = session.createCriteria(RfNilai.class);
         criteria.addOrder(Order.asc("urutan"));
         result = criteria.list();
         
-        this.session.getTransaction().commit();
+        session.getTransaction().commit();
         return result;
     }
     
@@ -62,17 +63,17 @@ public class RfNilaiDao extends Dao {
      * @throws Exception 
      */
     public RfNilai getById(String id) throws Exception {
-        this.Open();
-        this.session.beginTransaction();
+        Session session = this.Open();
+        session.beginTransaction();
         
         RfNilai result = null;
-        Criteria criteria = this.session.createCriteria(RfNilai.class);
+        Criteria criteria = session.createCriteria(RfNilai.class);
         criteria.add(Restrictions.eq("id", id));
         if(!criteria.list().isEmpty()){
             result = (RfNilai) criteria.list().get(0);
         }
         
-        this.session.getTransaction().commit();
+        session.getTransaction().commit();
         return result;
     }
     
@@ -84,17 +85,17 @@ public class RfNilaiDao extends Dao {
      * @throws Exception 
      */
     public RfNilai getByHasil(Boolean hasil) throws Exception {
-        this.Open();
-        this.session.beginTransaction();
+        Session session = this.Open();
+        session.beginTransaction();
         
         RfNilai result = null;
-        Criteria criteria = this.session.createCriteria(RfNilai.class);
+        Criteria criteria = session.createCriteria(RfNilai.class);
         criteria.add(hasil == null ? Restrictions.isNull("hasil") : Restrictions.eq("hasil", hasil));
         if(!criteria.list().isEmpty()){
             result = (RfNilai) criteria.list().get(0);
         }
         
-        this.session.getTransaction().commit();
+        session.getTransaction().commit();
         return result;
     }
     

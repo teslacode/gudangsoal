@@ -10,15 +10,16 @@ import org.hibernate.Session;
  */
 public class Dao {
     
-    protected Session session;
+    //protected Session session;
     
     /**
      * Open Connection
      * 
+     * @return 
      * @throws java.lang.Exception
      */
-    public void Open() throws Exception {
-        this.session = HibernateUtil.getSessionFactory().getCurrentSession();
+    public Session Open() throws Exception {
+        return HibernateUtil.getSessionFactory().getCurrentSession();
     }
     
 }

@@ -1,6 +1,7 @@
 package com.gudangsoal.dao;
 
 import com.gudangsoal.model.HasilPertanyaan;
+import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,14 +22,14 @@ public class HasilPertanyaanDao extends Dao {
      * @throws java.lang.Exception 
      */
     public Boolean save(HasilPertanyaan object) throws Exception {
-        this.Open();
-        this.session.beginTransaction();
+        Session session = this.Open();
+        session.beginTransaction();
         
         Boolean result;
         session.merge(object);
         result = true;
         
-        this.session.getTransaction().commit();
+        session.getTransaction().commit();
         return result;
     }
     
