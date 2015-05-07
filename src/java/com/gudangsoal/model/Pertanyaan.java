@@ -42,8 +42,9 @@ public class Pertanyaan implements Serializable {
     @Transient private Boolean hasil;
     @Transient private Integer nilai;
     @Transient private Long pilihanId;
+    @Transient private int nomorUrut;
     
-    @OneToMany(fetch = FetchType.EAGER, mappedBy="pertanyaan")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="pertanyaan")
     private List<Pilihan> listPilihan;
     
     /**
@@ -182,6 +183,14 @@ public class Pertanyaan implements Serializable {
 
     public void setPilihanId(Long pilihanId) {
         this.pilihanId = pilihanId;
+    }
+
+    public int getNomorUrut() {
+        return nomorUrut;
+    }
+
+    public void setNomorUrut(int nomorUrut) {
+        this.nomorUrut = nomorUrut;
     }
 
     public List<Pilihan> getListPilihan() {

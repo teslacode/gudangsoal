@@ -26,3 +26,7 @@ a:hover{
   counter-increment: SerialPilihan;
   content: counter(SerialPilihan,upper-alpha) ". ";
 }
+
+.box-shadow {
+    box-shadow: 5px 5px 2px #bbb;
+}

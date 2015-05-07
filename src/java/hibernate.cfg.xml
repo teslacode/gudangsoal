@@ -5,6 +5,9 @@
       <property name="hibernate.current_session_context_class">thread</property>
       <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
       <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+<!--      <property name="hibernate.connection.url">jdbc:postgresql://127.13.148.2:5432/gudangsoal</property>
+      <property name="hibernate.connection.username">adminxjynefd</property>
+      <property name="hibernate.connection.password">LnIdptfs2uxN</property>-->
       <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/gudang</property>
       <property name="hibernate.connection.username">postgres</property>
       <property name="hibernate.connection.password">postgres</property>

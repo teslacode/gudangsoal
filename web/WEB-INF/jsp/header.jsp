@@ -19,12 +19,10 @@
         <script src="<c:url value="/resources/datatables/js/jquery.dataTables.js" />"></script>
     </head>
     <body>
-        <div class="col-md-12">
-            <ul class="breadcrumb">
-                <c:forEach items="${listBreadCrumbs}" var="breadCrumbs">
-                    <li><a href="${breadCrumbs.link}">${breadCrumbs.description}</a></li>
-                </c:forEach>
-            </ul>
-        </div>
+        <ul class="breadcrumb">
+            <c:forEach items="${listBreadCrumbs}" var="breadCrumbs">
+                <li><a href="${breadCrumbs.link}">${breadCrumbs.description}</a></li>
+            </c:forEach>
+        </ul>
     </body>
 </html>
